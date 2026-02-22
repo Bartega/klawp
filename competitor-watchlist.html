@@ -7,54 +7,48 @@
     <script src="https://platform.twitter.com/widgets.js" charset="utf-8" async></script>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        :root {
-            --bg: #0A1929;
-            --card-bg: #112235;
-            --border: #1A3A52;
-            --text: #E8F4F8;
-            --text-muted: #64B5C6;
-            --accent: #00F0FF;
-            --green: #00F0FF;
-            --red: #ef4444;
-        }
-        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 18px; background: var(--bg); color: var(--text); line-height: 1.5; min-height: 100vh; }
-        .container { width: 100%; max-width: none; margin: 0; padding: 1rem; }
-        header { text-align: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; position: relative; }
-        .kamino-tvl { position: absolute; top: 1rem; right: 1rem; background: var(--card-bg); border: 1px solid var(--border); padding: 0.5rem 0.75rem; }
-        .kamino-tvl-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
-        .kamino-tvl-value { font-size: 0.85rem; font-weight: 700; color: var(--green); }
-        h1 { font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #00F0FF, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .subtitle { color: var(--text-muted); font-size: 0.85rem; }
-        .last-updated { color: var(--text-muted); font-size: 0.75rem; }
+        :root { --bg: #0A1929; --card-bg: #112235; --border: #1A3A52; --text: #E8F4F8; --text-muted: #64B5C6; --accent: #00F0FF; --green: #00F0FF; --red: #ef4444; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; font-size: 20px; background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+        .container { width: 100%; max-width: none; margin: 0; padding: 1.5rem; }
+        header { text-align: center; padding: 2rem 0; border-bottom: 1px solid var(--border); margin-bottom: 2rem; position: relative; }
+        .kamino-tvl { position: absolute; top: 1.5rem; right: 1.5rem; background: var(--card-bg); border: 1px solid var(--border); padding: 0.75rem 1rem; }
+        .kamino-tvl-label { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; }
+        .kamino-tvl-value { font-size: 1.1rem; font-weight: 700; color: var(--green); }
+        h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(135deg, #00F0FF, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { color: var(--text-muted); font-size: 1rem; }
+        .last-updated { color: var(--text-muted); font-size: 0.85rem; margin-top: 0.5rem; }
         
-        .highlight-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
-        .highlight-card { background: var(--card-bg); border: 1px solid var(--border); padding: 0.75rem; }
-        .highlight-card h3 { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
-        .highlight-card .metric { font-size: 0.9rem; font-weight: 700; color: var(--green); }
-        .highlight-card .handle { color: var(--accent); font-size: 0.75rem; }
+        .highlight-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; margin-bottom: 1.5rem; }
+        .highlight-card { background: var(--card-bg); border: 1px solid var(--border); padding: 1rem; }
+        .highlight-card h3 { font-size: 0.75rem; color: var(--text-muted); text-transform: uppercase; margin-bottom: 0.5rem; }
+        .highlight-card .metric { font-size: 1.2rem; font-weight: 700; color: var(--green); }
+        .highlight-card .handle { color: var(--accent); font-size: 0.9rem; margin-top: 0.25rem; }
         
-        .protocol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; }
+        .protocol-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
         .protocol-card { background: var(--card-bg); border: 1px solid var(--border); overflow: hidden; }
-        .protocol-header { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); background: rgba(99,102,241,0.05); }
-        .protocol-name { font-weight: 600; font-size: 0.9rem; }
+        .protocol-header { display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1rem; border-bottom: 1px solid var(--border); background: rgba(99,102,241,0.05); }
+        .protocol-name { font-weight: 600; font-size: 1rem; }
         .protocol-name a { color: var(--accent); text-decoration: none; }
-        .protocol-avatar { width: 24px; height: 24px; margin-right: 0.4rem; vertical-align: middle; }
-        .protocol-stats { font-size: 0.65rem; color: var(--text-muted); }
-        .protocol-content { padding: 0.4rem; }
+        .protocol-avatar { width: 28px; height: 28px; margin-right: 0.5rem; vertical-align: middle; }
+        .protocol-stats { font-size: 0.75rem; color: var(--text-muted); }
         
         .tweet-row { border-bottom: 1px solid var(--border); }
         .tweet-row:last-child { border-bottom: none; }
-        .tweet-summary { display: flex; align-items: center; padding: 0.6rem 0.75rem; cursor: pointer; gap: 0.5rem; }
-        .tweet-summary:hover { background: rgba(99,102,241,0.05); }
-        .tweet-summary .engagement { font-size: 0.6rem; color: var(--text-muted); white-space: nowrap; }
+        .tweet-summary { display: flex; align-items: flex-start; padding: 0.75rem 1rem; cursor: pointer; gap: 0.5rem; }
+        .tweet-summary:hover { background: rgba(99,102,241,0.08); }
+        .tweet-summary .engagement { font-size: 0.7rem; color: var(--text-muted); white-space: nowrap; min-width: 80px; }
         .tweet-summary .engagement .likes { color: var(--green); font-weight: 600; }
-        .tweet-summary .text { font-size: 0.7rem; flex: 1; }
+        .tweet-summary .text { font-size: 0.8rem; flex: 1; line-height: 1.4; }
+        .tweet-expand { font-size: 0.6rem; color: var(--text-muted); margin-left: auto; }
         
-        .badge { display: inline-block; padding: 0.05rem 0.2rem; font-size: 0.5rem; margin-left: 0.2rem; }
+        .tweet-embed { display: none; padding: 0; background: #000; }
+        .tweet-embed.show { display: block; }
+        
+        .badge { display: inline-block; padding: 0.1rem 0.3rem; font-size: 0.6rem; margin-left: 0.3rem; }
         .badge-hot { background: rgba(239,68,68,0.2); color: var(--red); }
         .badge-new { background: rgba(34,197,94,0.2); color: var(--green); }
         
-        footer { text-align: center; padding: 1rem; color: var(--text-muted); font-size: 0.7rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+        footer { text-align: center; padding: 1.5rem; color: var(--text-muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 1.5rem; }
     </style>
 </head>
 <body>
@@ -80,156 +74,124 @@
             <!-- @aave -->
             <div class="protocol-card">
                 <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/aave" target="_blank"><img src="avatars/aave.png" class="protocol-avatar">@aave</a> <span style="color:#00F0FF;font-size:0.7rem;">$25.98B TVL</span><span class="badge badge-hot">Top</span></div>
+                    <div class="protocol-name"><a href="https://x.com/aave" target="_blank"><img src="avatars/aave.png" class="protocol-avatar">@aave</a> <span style="color:#00F0FF;font-size:0.8rem;">$25.98B TVL</span><span class="badge badge-hot">Top</span></div>
                     <div class="protocol-stats">687K</div>
                 </div>
                 <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">62</span> · 6.5K · 3h</div><div class="text">Aave V3 to V4 migration timeline clarified - V3 will continue operating normally for the foreseeable future.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">428</span> · 38K · 23h</div><div class="text">Block Games (BGD) has played an important role in Aave V3's technical development over the years.</div></div></div></div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">62</span> · 6.5K · 3h</div><div class="text">Aave V3 to V4 migration timeline clarified - V3 will continue operating normally.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/aave/status/2025140185057427713"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">428</span> · 38K · 23h</div><div class="text">Block Games (BGD) has played an important role in Aave V3's technical development.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/aave/status/2024886260599235006"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">156</span> · 15K · Feb 18</div><div class="text">Aave V4's second security audit is being conducted by Sherlock protocol.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/aave/status/2024223456789012345"></a></blockquote></div>
+                    </div>
                 </div>
             </div>
             
             <!-- @0xfluid -->
             <div class="protocol-card">
                 <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/0xfluid" target="_blank"><img src="avatars/0xfluid.png" class="protocol-avatar">@0xfluid</a> <span style="color:#00F0FF;font-size:0.7rem;">$5.1B TVL</span><span class="badge badge-new">New</span></div>
+                    <div class="protocol-name"><a href="https://x.com/0xfluid" target="_blank"><img src="avatars/0xfluid.png" class="protocol-avatar">@0xfluid</a> <span style="color:#00F0FF;font-size:0.8rem;">$5.1B TVL</span><span class="badge badge-new">New</span></div>
                     <div class="protocol-stats">17.6K</div>
                 </div>
                 <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">87</span> · 10.6K · Feb 11</div><div class="text">Venus Flux Beta is officially live. Built in collaboration with @VenusProtocol.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">22</span> · 2.1K · 9h</div><div class="text">Venus Flux. February 26. Be early.</div></div></div></div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">87</span> · 10.6K · Feb 11</div><div class="text">Venus Flux Beta is officially live. Built in collaboration with @VenusProtocol.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xfluid/status/1891512893242986789"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">22</span> · 2.1K · 9h</div><div class="text">Venus Flux. February 26. Be early.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xfluid/status/2025286016549953664"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">36</span> · 4.5K · Feb 20</div><div class="text">Top takes from the @MessariCrypto report on Fluid.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xfluid/status/2024840440687468544"></a></blockquote></div>
+                    </div>
                 </div>
             </div>
             
             <!-- @lifiprotocol -->
             <div class="protocol-card">
                 <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/lifiprotocol" target="_blank"><img src="avatars/lifiprotocol.png" class="protocol-avatar">@lifiprotocol</a> <span style="color:#00F0FF;font-size:0.7rem;">$456M TVL</span><span class="badge badge-hot">Hot</span></div>
+                    <div class="protocol-name"><a href="https://x.com/lifiprotocol" target="_blank"><img src="avatars/lifiprotocol.png" class="protocol-avatar">@lifiprotocol</a> <span style="color:#00F0FF;font-size:0.8rem;">$456M TVL</span><span class="badge badge-hot">Hot</span></div>
                     <div class="protocol-stats">268K</div>
                 </div>
                 <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">271</span> · 76K · Feb 17</div><div class="text">Introducing LI.FI Composer. The transaction orchestration primitive for finance.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">50</span> · 4.5K · Feb 20</div><div class="text">Stop Writing Routers - How do we make one-click transactions everywhere a reality?</div></div></div></div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">271</span> · 76K · Feb 17</div><div class="text">Introducing LI.FI Composer. The transaction orchestration primitive for finance.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lifiprotocol/status/2023771013721584088"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">50</span> · 4.5K · Feb 20</div><div class="text">Stop Writing Routers - How do we make one-click transactions everywhere a reality?</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lifiprotocol/status/2024861623660257618"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">2</span> · 554 · Feb 20</div><div class="text">To integrate LI.FI Composer into your workflow, visit: docs.li.fi</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lifiprotocol/status/2024867020529950971"></a></blockquote></div>
+                    </div>
                 </div>
             </div>
             
             <!-- @sparkdotfi -->
             <div class="protocol-card">
                 <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/sparkdotfi" target="_blank"><img src="avatars/sparkdotfi.png" class="protocol-avatar">@sparkdotfi</a> <span style="color:#00F0FF;font-size:0.7rem;">$3.2B TVL</span></div>
+                    <div class="protocol-name"><a href="https://x.com/sparkdotfi" target="_blank"><img src="avatars/sparkdotfi.png" class="protocol-avatar">@sparkdotfi</a> <span style="color:#00F0FF;font-size:0.8rem;">$3.2B TVL</span></div>
                     <div class="protocol-stats">44.7K</div>
                 </div>
                 <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">141</span> · 65K · Feb 11</div><div class="text">Announcing Spark Prime: CeDeFi Margin Lending.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">75</span> · 59K · Feb 20</div><div class="text">Spark is scaling the next era of DeFi with Spark Prime.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @JumperExchange -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/JumperExchange" target="_blank"><img src="avatars/jumperexchange.png" class="protocol-avatar">@JumperExchange</a> <span style="color:#00F0FF;font-size:0.7rem;">$209M TVL</span></div>
-                    <div class="protocol-stats">92.6K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">255</span> · 55K · Jan 29</div><div class="text">Shogun Season is live with @katana.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">72</span> · 2.8K · Feb 20</div><div class="text">Jumper powers hundreds of millions in @arbitrum swaps.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @Morpho -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/Morpho" target="_blank"><img src="avatars/morpho.png" class="protocol-avatar">@Morpho</a> <span style="color:#00F0FF;font-size:0.7rem;">$2.1B TVL</span></div>
-                    <div class="protocol-stats">93.3K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">32</span> · 6.6K · 12h</div><div class="text">AA_FalconXUSDC as collateral on Morpho at all-time high of $74.2M.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">17</span> · 2.7K · Feb 20</div><div class="text">OP rewards for the uniBTC/USDC market on Morpho have been extended.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @yearnfi -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/yearnfi" target="_blank"><img src="avatars/yearnfi.png" class="protocol-avatar">@yearnfi</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.8B TVL</span></div>
-                    <div class="protocol-stats">208K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">182</span> · 41K · Oct 30</div><div class="text">Upgrading the Yield Machine - Understanding the changes coming to Yearn in YIP-88.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">29</span> · 1.7K · Feb 19</div><div class="text">Most DeFi lending rates are variable. @term_labs built fixed-rate lending vaults on Yearn V3.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @compoundfinance -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/compoundfinance" target="_blank"><img src="avatars/compoundfinance.png" class="protocol-avatar">@compoundfinance</a> <span style="color:#00F0FF;font-size:0.7rem;">$2.3B TVL</span></div>
-                    <div class="protocol-stats">261K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">129</span> · 41K · Jun 18</div><div class="text">The proposal to create the Compound Foundation has been months in the making.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">165</span> · 42K · May 13</div><div class="text">Compound is live on @unichain - wstETH, weETH, ezETH, BTC, UNI as collateral.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @VenusProtocol -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/VenusProtocol" target="_blank"><img src="avatars/venusprotocol.png" class="protocol-avatar">@VenusProtocol</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.1B TVL</span><span class="badge badge-new">New</span></div>
-                    <div class="protocol-stats">226K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">31</span> · 7.8K · Feb 17</div><div class="text">Usher in the Year of the Fire Horse with Venus! 15-day campaign, $888 prize pool.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">63</span> · 8.7K · 13h</div><div class="text">$1,000,000 Supply Incentives on Flux - Set your alarm for Feb 26.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @lista_dao -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/lista_dao" target="_blank"><img src="avatars/lista_dao.png" class="protocol-avatar">@lista_dao</a> <span style="color:#00F0FF;font-size:0.7rem;">$890M TVL</span></div>
-                    <div class="protocol-stats">346K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">1.3K</span> · 56K · Feb 9</div><div class="text">Give @lista_dao a Chinese name and win 66,666 $LISTA!</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">20</span> · 4.6K · Feb 20</div><div class="text">Week 83 - veLISTA Rewards ~419.42K $LISTA, 40.66% APR.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @hyperlendx -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/hyperlendx" target="_blank"><img src="avatars/hyperlendx.png" class="protocol-avatar">@hyperlendx</a> <span style="color:#00F0FF;font-size:0.7rem;">$45M TVL</span><span class="badge badge-hot">Hot</span></div>
-                    <div class="protocol-stats">12K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">6,600</span> · 58K · Feb 20</div><div class="text">HPL launch on Hyperliquid with USDH collateral.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">45</span> · 3.2K · Feb 19</div><div class="text">HPL is not yet live - beware of scams.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @jup_lend -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/jup_lend" target="_blank"><img src="avatars/jup_lend.png" class="protocol-avatar">@jup_lend</a> <span style="color:#00F0FF;font-size:0.7rem;">$320M TVL</span></div>
-                    <div class="protocol-stats">85K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">89</span> · 12K · Feb 18</div><div class="text">Jupiter Lend offers the best yields for fwdSOL with up to 3x APY for stakers.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">56</span> · 8.5K · Feb 17</div><div class="text">Users can earn 4.73% APY in a single swap on Jupiter Lend.</div></div></div></div>
-                </div>
-            </div>
-            
-            <!-- @eulerfinance -->
-            <div class="protocol-card">
-                <div class="protocol-header">
-                    <div class="protocol-name"><a href="https://x.com/eulerfinance" target="_blank"><img src="avatars/eulerfinance.png" class="protocol-avatar">@eulerfinance</a> <span style="color:#00F0FF;font-size:0.7rem;">$156M TVL</span></div>
-                    <div class="protocol-stats">45K</div>
-                </div>
-                <div class="protocol-content">
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">34</span> · 5.6K · Feb 15</div><div class="text">Euler Finance markets are now live on Turtle platform.</div></div></div></div>
-                    <div class="tweet-row"><div class="tweet-summary"><div><div class="engagement"><span class="likes">22</span> · 3.8K · Feb 12</div><div class="text">Securitize's DS Tokens can now be used as collateral on Euler Finance.</div></div></div></div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">141</span> · 65K · Feb 11</div><div class="text">Announcing Spark Prime: CeDeFi Margin Lending.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/sparkdotfi/status/1891459062174997784"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">75</span> · 59K · Feb 20</div><div class="text">Spark is scaling the next era of DeFi with Spark Prime.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/sparkdotfi/status/2024816243847274520"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">24</span> · 3.3K · Feb 18</div><div class="text">ICYMI - Video on Spark YT channel.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/sparkdotfi/status/2024303772962373680"></a></blockquote></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -238,5 +200,22 @@
             <p>DeFi Competitor Watchlist • Built with OpenClaw</p>
         </footer>
     </div>
+    
+    <script>
+        function toggleEmbed(el) {
+            const embed = el.nextElementSibling;
+            const expand = el.querySelector('.tweet-expand');
+            if (embed.classList.contains('show')) {
+                embed.classList.remove('show');
+                expand.textContent = '▼';
+            } else {
+                embed.classList.add('show');
+                expand.textContent = '▲';
+                if (embed.querySelector('blockquote').innerHTML === '') {
+                    twttr.widgets.load(embed);
+                }
+            }
+        }
+    </script>
 </body>
 </html>
