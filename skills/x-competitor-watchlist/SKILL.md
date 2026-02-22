@@ -8,12 +8,6 @@ description: Monitor X/Twitter accounts and generate an HTML competitor watchlis
 ⚠️ **CRITICAL REQUIREMENTS - NEVER DEVIATE FROM THESE:**
 
 1. **3 COLUMNS**: Use grid-template-columns: repeat(3, 1fr)
-2. **3 TWEETS PER CARD**: Each protocol card must have exactly 3 tweet-rows  
-3. **RECENT POSTS ONLY**: Tweets must be from the last 3 days max (no older posts)
-4. **DROPDOWN EMBEDS**: Every tweet must have:
-   - `onclick="toggleEmbed(this)"` on the tweet-summary
-   - A hidden tweet-embed blockquote below it
-   - A tweet-expand arrow (▼) that changes when open
 
 Generate an HTML page monitoring X/Twitter accounts with dropdown tweet embeds, TVL data, and brand theming.
 
