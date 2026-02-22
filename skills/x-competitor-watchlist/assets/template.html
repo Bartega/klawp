@@ -24,19 +24,14 @@
             line-height: 1.4;
             min-height: 100vh;
         }
+
+        .protocol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .container { max-width: 1000px; margin: 0 auto; padding: 1rem; }
         header { text-align: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
         h1 { font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #00F0FF, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .subtitle { color: var(--text-muted); font-size: 0.85rem; }
         .last-updated { color: var(--text-muted); font-size: 0.75rem; }
         
-        .highlight-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
-        .highlight-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 0; padding: 0.75rem; }
-        .highlight-card h3 { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
-        .highlight-card .metric { font-size: 0.9rem; font-weight: 700; color: var(--green); }
-        .highlight-card .handle { color: var(--accent); font-size: 0.75rem; }
-        
-        .protocol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; }
         .protocol-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 0; overflow: hidden; }
         .protocol-header { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); background: rgba(99,102,241,0.05); }
         .protocol-name { font-weight: 600; font-size: 0.9rem; }
@@ -66,8 +61,6 @@
         footer { text-align: center; padding: 1rem; color: var(--text-muted); font-size: 0.7rem; border-top: 1px solid var(--border); margin-top: 1rem; }
         
         @media (max-width: 600px) {
-            .highlight-cards { grid-template-columns: repeat(3, 1fr); }
-            .protocol-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -79,12 +72,11 @@
             <p class="last-updated">Updated: Feb 21, 2026</p>
         </header>
         
-            <div class="highlight-card"><h3>🔥 Hot</h3><div class="metric">LI.FI</div><div class="handle">@lifiprotocol</div></div>
-            <div class="highlight-card"><h3>📈 Growing</h3><div class="metric">$5.1B</div><div class="handle">@0xfluid</div></div>
-            <div class="highlight-card"><h3>💰 Volume</h3><div class="metric">$209M+</div><div class="handle">@Jumper</div></div>
-        </div>
         
-        <div class="protocol-grid">
+        <style>
+.protocol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+</style>
+<div class="protocol-grid">
             <div class="protocol-card">
                 <div class="protocol-header">
                     <div class="protocol-name"><a href="https://x.com/aave" target="_blank"><img src="avatars/aave.png" class="protocol-avatar" alt="@aave">@aave</a> <span style="color:#00F0FF;font-size:0.7rem;">$25.98B TVL</span><span class="badge badge-hot">Top</span></div>
