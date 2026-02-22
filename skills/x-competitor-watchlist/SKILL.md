@@ -142,18 +142,17 @@ Generates `competitor-watchlist.html` with:
 - Dropdown expand/collapse for tweet embeds
 - Dark theme with brand colors
 
-## Scraping Real Tweets
+## Scraping Real Tweets (MANUAL BROWSER)
 
-To get REAL tweets from X (not fake ones), use the x-research skill:
+To get REAL tweets from X, you must manually scrape x.com using the browser:
 
-```bash
-cd skills/x-research
-bun run x-search.ts search "from:aave -is:retweet"
-```
+1. Start browser: `browser start --profile openclaw`
+2. Open each account: `browser open https://x.com/aave`
+3. Take snapshot to see tweets
+4. Copy real tweet URLs from the page
+5. Update template.html with real URLs
 
-This gives you real tweets with URLs like `https://x.com/aave/status/123456789`
-
-Then update template.html with the real tweet URLs.
+Manual scraping = using browser to visit x.com, NOT using x-research API.
 
 ### Accounts to scrape:
 - @aave, @0xfluid, @lifiprotocol, @sparkdotfi, @JumperExchange, @Morpho, @yearnfi, @compoundfinance, @VenusProtocol, @lista_dao, @hyperlendx, @jup_lend, @eulerfinance
