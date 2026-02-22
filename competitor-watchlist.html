@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeFi Competitor Watchlist</title>
+    <script src="https://platform.twitter.com/widgets.js" charset="utf-8" async></script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --bg: #0A1929;
+            --card-bg: #112235;
+            --border: #1A3A52;
+            --text: #E8F4F8;
+            --text-muted: #64B5C6;
+            --accent: #00F0FF;
+            --green: #00F0FF;
+            --red: #ef4444;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            font-size: 18px;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.5;
+            min-height: 100vh;
+        }
+        .container { width: 100%; max-width: none; margin: 0; padding: 1rem; }
+        header { text-align: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; position: relative; }
+        .kamino-tvl { position: absolute; top: 1rem; right: 1rem; background: var(--card-bg); border: 1px solid var(--border); padding: 0.5rem 0.75rem; border-radius: 0; }
+        .kamino-tvl-label { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
+        .kamino-tvl-value { font-size: 0.85rem; font-weight: 700; color: var(--green); }
+        h1 { font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #00F0FF, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .subtitle { color: var(--text-muted); font-size: 0.85rem; }
+        .last-updated { color: var(--text-muted); font-size: 0.75rem; }
+        
+        .highlight-cards { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.75rem; margin-bottom: 1rem; }
+        .highlight-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 0; padding: 0.75rem; }
+        .highlight-card h3 { font-size: 0.6rem; color: var(--text-muted); text-transform: uppercase; }
+        .highlight-card .metric { font-size: 0.9rem; font-weight: 700; color: var(--green); }
+        .highlight-card .handle { color: var(--accent); font-size: 0.75rem; }
+        
+        .protocol-grid { display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 0.75rem !important; width: 100% !important; }
+        .protocol-card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 0; overflow: hidden; min-width: 0; }
+        .protocol-header { display: flex; justify-content: space-between; align-items: center; padding: 0.6rem 0.75rem; border-bottom: 1px solid var(--border); background: rgba(99,102,241,0.05); }
+        .protocol-name { font-weight: 600; font-size: 0.9rem; }
+        .protocol-name a { color: var(--accent); text-decoration: none; }
+        .protocol-avatar { width: 24px; height: 24px; border-radius: 0; margin-right: 0.4rem; vertical-align: middle; }
+        .protocol-stats { font-size: 0.65rem; color: var(--text-muted); }
+        .protocol-content { padding: 0.4rem; }
+        
+        .tweet-row { border-bottom: 1px solid var(--border); }
+        .tweet-row:last-child { border-bottom: none; }
+        .tweet-summary { display: flex; align-items: center; padding: 0.6rem 0.75rem; cursor: pointer; gap: 0.5rem; }
+        .tweet-summary:hover { background: rgba(99,102,241,0.05); }
+        .tweet-summary .engagement { font-size: 0.6rem; color: var(--text-muted); white-space: nowrap; }
+        .tweet-summary .engagement .likes { color: var(--green); font-weight: 600; }
+        .tweet-summary .text { font-size: 0.7rem; flex: 1; }
+        .tweet-expand { font-size: 0.5rem; color: var(--text-muted); transition: transform 0.2s; }
+        .tweet-expand.open { transform: rotate(180deg); }
+        
+        .tweet-embed { display: none; padding: 0; background: #000; }
+        .tweet-embed.show { display: block; }
+        .tweet-embed blockquote { margin: 0; }
+        
+        .badge { display: inline-block; padding: 0.05rem 0.2rem; border-radius: 0; font-size: 0.5rem; margin-left: 0.2rem; }
+        .badge-hot { background: rgba(239,68,68,0.2); color: var(--red); }
+        .badge-new { background: rgba(34,197,94,0.2); color: var(--green); }
+        
+        footer { text-align: center; padding: 1rem; color: var(--text-muted); font-size: 0.7rem; border-top: 1px solid var(--border); margin-top: 1rem; }
+        
+        /* Responsive disabled - always 4 columns */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>DeFi Competitor Watchlist</h1>
+            <p class="subtitle">13 DeFi protocols on X</p>
+            <p class="last-updated">Updated: Feb 22, 2026 2026</p>
+            <div class="kamino-tvl">
+                <div class="kamino-tvl-label">Kamino TVL</div>
+                <div class="kamino-tvl-value">$2.0B</div>
+            </div>
+        </header>
+        
+        <div class="highlight-cards">
+            <div class="highlight-card"><h3>🚀 Milestone</h3><div class="metric">$1B+ RWA</div><div class="handle">@aave</div></div>
+            <div class="highlight-card"><h3>🔥 Hot</h3><div class="metric">LI.FI</div><div class="handle">@lifiprotocol</div></div>
+            <div class="highlight-card"><h3>📈 Growing</h3><div class="metric">$5.1B</div><div class="handle">@0xfluid</div></div>
+            <div class="highlight-card"><h3>💰 Volume</h3><div class="metric">$209M+</div><div class="handle">@Jumper</div></div>
+        </div>
+        
+        <div class="protocol-grid">
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/aave" target="_blank"><img src="avatars/aave.png" class="protocol-avatar" alt="@aave">@aave</a> <span style="color:#00F0FF;font-size:0.7rem;">$25.98B TVL</span><span class="badge badge-hot">Top</span></div>
+                    <div class="protocol-stats">687K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">62</span> · 6.5K · 3h</div><div class="text">Aave V3 to V4 migration timeline clarified - V3 will continue operating normally for the foreseeable future.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/aave/status/2025140185057427713"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">428</span> · 38K · 23h</div><div class="text">Block Games (BGD) has played an important role in Aave V3's technical development over the years.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/aave/status/2024759208553066770"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">215</span> · 30K · Feb 19</div><div class="text">Aave V4's second security audit is being conducted by Sherlock protocol to ensure robustness and safety.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/aave/status/2024221205612384335"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/0xfluid" target="_blank"><img src="avatars/0xfluid.png" class="protocol-avatar" alt="@0xfluid">@0xfluid</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.01B TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">39K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">35</span> · 4.2K · Feb 20</div><div class="text">According to Messari report, Fluid is now the second largest DEX with $5.1 billion in market size.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xfluid/status/2024819837554618825"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">23</span> · 2.4K · Feb 20</div><div class="text">USDT lending on Plasma is currently earning attractive 11% APY for depositors looking for stable yields.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xfluid/status/2024705797461332183"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">60</span> · 1.2K · Feb 20</div><div class="text">Fluid is re-architecting DeFi liquidity with innovative mechanisms to improve capital efficiency across markets.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xfluid/status/2024819849659334943"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/lifiprotocol" target="_blank"><img src="avatars/lifiprotocol.png" class="protocol-avatar" alt="@lifiprotocol">@lifiprotocol</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.84B TVL</span><span class="badge badge-hot">Hot</span></div>
+                    <div class="protocol-stats">268K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">49</span> · 4.1K · Feb 20</div><div class="text">Stop writing custom routers - learn how to make one-click transactions everywhere with LI.FI's new solution.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lifiprotocol/status/2024861623660257618"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">80</span> · 2.8K · Feb 19</div><div class="text">LI.FI Composer introduces a multi-chain virtual machine enabling seamless cross-chain transactions and DeFi interactions.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lifiprotocol/status/2024171746408996955"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">269</span> · 76K · Feb 17</div><div class="text">LI.FI has officially launched their Composer product, enabling developers to build cross-chain applications easily.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lifiprotocol/status/2023771013721584088"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/sparkdotfi" target="_blank"><img src="avatars/sparkdotfi.png" class="protocol-avatar" alt="@sparkdotfi">@sparkdotfi</a> <span style="color:#00F0FF;font-size:0.7rem;">$5.47B TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">69K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">73</span> · 58K · 22h</div><div class="text">Spark Prime introduces CeDeFi margin lending, combining centralized and decentralized finance for improved capital access.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/sparkdotfi/status/2024907025105228118"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">45</span> · 6K · Feb 17</div><div class="text">Financial convergence feature is now live on Spark Prime, launched on February 11th for users.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/sparkdotfi/status/2023776462608994385"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">24</span> · 3.3K · Feb 18</div><div class="text">Check out the latest video from the Spark team on their official YouTube channel for updates.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/sparkdotfi/status/2024181782590214635"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/JumperExchange" target="_blank"><img src="avatars/JumperExchange.png" class="protocol-avatar" alt="@JumperExchange">@JumperExchange</a><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">212K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">69</span> · 2.7K · Feb 20</div><div class="text">Top performing DEXs on Arbitrum include Kyber with $209 million and 1inch with $135 million in volume.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/JumperExchange/status/2024875458085769637"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">105</span> · 3.1K · Feb 20</div><div class="text">Over $1.2 billion has been moved through Jumper Exchange during the month of February so far.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/JumperExchange/status/2024775090739769625"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">95</span> · 2.5K · Feb 19</div><div class="text">Users can now access all liquidity from DEXs on Arbitrum through Jumper's unified interface.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/JumperExchange/status/2024473879729885627"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/Morpho" target="_blank"><img src="avatars/Morpho.png" class="protocol-avatar" alt="@Morpho">@Morpho</a> <span style="color:#00F0FF;font-size:0.7rem;">$5.76B TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">106K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">17</span> · 3.8K · 2h</div><div class="text">AA_FalconXUSDC has reached an all-time high of $74.2 million in total value locked on Morpho protocol.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/MorphoLabs/status/2025207014419214741"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">25</span> · 2.9K · 22h</div><div class="text">Coinbase has originated over $1 billion in loans through Morpho within just 8 months of operation.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/MorphoLabs/status/2024908580101476516"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">14</span> · 1.9K · 23h</div><div class="text">OP rewards for the uniBTC/USDC market on Morpho have been extended for another 2 weeks.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/Bedrock_DeFi/status/2024892043097768165"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/yearnfi" target="_blank"><img src="avatars/yearnfi.png" class="protocol-avatar" alt="@yearnfi">@yearnfi</a> <span style="color:#00F0FF;font-size:0.7rem;">$289M TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">208K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">29</span> · 1.7K · Feb 19</div><div class="text">Yearn Finance now offers fixed-rate vaults through their V3 platform, providing predictable yields for depositors.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/yearnfi/status/2024571908646375910"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">26</span> · 1.5K · Feb 19</div><div class="text">Yearn's Weekly Blue Pill report for Week 7, 2026 provides updates on protocol performance and yields.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/yearnfi/status/2024526867135680574"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">3</span> · 713 · Feb 19</div><div class="text">Term Finance has launched their vaults on Yearn, offering fixed-rate lending options for DeFi users.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/yearnfi/status/2024571956746735952"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/eulerfinance" target="_blank"><img src="avatars/eulerfinance.png" class="protocol-avatar" alt="@eulerfinance">@eulerfinance</a> <span style="color:#00F0FF;font-size:0.7rem;">$509M TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">72K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">31</span> · 2.1K · 19h</div><div class="text">Euler Finance markets are now live on Turtle platform, expanding decentralized lending options for users.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/eulerfinance/status/2024951993261842832"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">48</span> · 3.5K · Feb 19</div><div class="text">Securitize's DS Tokens can now be used as collateral on Euler Finance for lending purposes.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/0xJHan/status/2024530928664486005"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">9</span> · 884 · 19h</div><div class="text">Users can now deposit funds on Turtle platform to access Euler Finance markets and earn yields.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/eulerfinance/status/2024951995577040913"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/jup_lend" target="_blank"><img src="avatars/jup_lend.png" class="protocol-avatar" alt="@jup_lend">@jup_lend</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.11B TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">9.6K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">39</span> · 2.7K · 14h</div><div class="text">Jupiter Lend offers the best yields for fwdSOL with up to 3x APY for stakers.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/jup_lend/status/2025027750512517287"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">130</span> · 22K · Feb 19</div><div class="text">Users can earn 4.73% APY on their assets with a single swap through Jupiter's lending platform.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/jup_lend/status/2024446800195957056"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">32</span> · 2.6K · Feb 18</div><div class="text">Stablecoin deposits on Jupiter Lend can earn up to 5.6% APY, offering competitive yields for users.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/jup_lend/status/2024029021663572253"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/VenusProtocol" target="_blank"><img src="avatars/VenusProtocol.png" class="protocol-avatar" alt="@VenusProtocol">@VenusProtocol</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.35B TVL</span><span class="badge badge-new">Active</span></div>
+                    <div class="protocol-stats">226K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">26</span> · 2K · 3h</div><div class="text">Venus Protocol announces $1 million in incentives for Flux protocol, launching on February 26th.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/VenusProtocol/status/2025193995484180985"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">29</span> · 3.2K · Feb 20</div><div class="text">Season 2 of U Carnival is now live with $1.2 million in rewards and 9% plus APR.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/VenusProtocol/status/2024686377032700229"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">20</span> · 1.6K · Feb 19</div><div class="text">Venus Protocol is running a promotion for the U Carnival Season 2 with rewards for participants.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/VenusProtocol/status/2024505070868713536"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/lista_dao" target="_blank"><img src="avatars/lista_dao.png" class="protocol-avatar" alt="@lista_dao">@lista_dao</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.84B TVL</span><span class="badge badge-hot">Hot</span></div>
+                    <div class="protocol-stats">346K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">18</span> · 4.5K · Feb 20</div><div class="text">Lista DAO Week 83 distribution includes approximately 419,000 $LISTA tokens with a 40.66% APR for stakers.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lista_dao/status/2024844860142895609"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">41</span> · 12K · Feb 19</div><div class="text">U Carnival Season 2 is now live on Lista DAO with $1.2 million in rewards for participants.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lista_dao/status/2024650454148239829"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">24</span> · 3.8K · Feb 19</div><div class="text">Lista DAO has released an ultra-low borrow rates guide for users looking to take out loans profitably.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/lista_dao/status/2024487145046487466"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/hyperlendx" target="_blank"><img src="avatars/hyperlendx.png" class="protocol-avatar" alt="@hyperlendx">@hyperlendx</a> <span style="color:#00F0FF;font-size:0.7rem;">$319M TVL</span></div>
+                    <div class="protocol-stats">31K</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">561</span> · 61K · Feb 12</div><div class="text">HyperLend has launched HPL token on Hyperliquid with USDH as collateral for users to access.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/hyperlendx/status/2021948871057059951"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">48</span> · 6.4K · Feb 12</div><div class="text">Important warning: HPL is not yet live on HyperLend - users should beware of scams and fake tokens.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/hyperlendx/status/2021948876828422311"></a></blockquote></div>
+                    </div>
+                    <div class="tweet-row">
+                        <div class="tweet-summary" onclick="toggleEmbed(this)">
+                            <div><div class="engagement"><span class="likes">30</span> · 5.1K · Feb 12</div><div class="text">HyperLend announced the official HPL token launch on Hyperliquid blockchain, enabling new DeFi opportunities for users.</div></div>
+                            <div class="tweet-expand">▼</div>
+                        </div>
+                        <div class="tweet-embed"><blockquote class="twitter-tweet"><a href="https://twitter.com/hyperlendx/status/2021948881765117984"></a></blockquote></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="protocol-card">
+                <div class="protocol-header">
+                    <div class="protocol-name"><a href="https://x.com/compoundfinance" target="_blank"><img src="avatars/compoundfinance.png" class="protocol-avatar" alt="@compoundfinance">@compoundfinance</a> <span style="color:#00F0FF;font-size:0.7rem;">$1.26B TVL</span></div>
+                    <div class="protocol-stats">—</div>
+                </div>
+                <div class="protocol-content">
+                    <div class="tweet-row">
+                        <div class="tweet-summary">
+                            <div><div class="text" style="color: var(--text-muted);">No recent tweets</div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>DeFi Competitor Watchlist</footer>
+    </div>
+    
+    <script>
+        function toggleEmbed(el) {
+            const embed = el.nextElementSibling;
+            const arrow = el.querySelector('.tweet-expand');
+            embed.classList.toggle('show');
+            arrow.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>
