@@ -24,6 +24,8 @@
             line-height: 1.4;
             min-height: 100vh;
         }
+
+        .protocol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
         .container { max-width: 1000px; margin: 0 auto; padding: 1rem; }
         header { text-align: center; padding: 1.5rem 0; border-bottom: 1px solid var(--border); margin-bottom: 1.5rem; }
         h1 { font-size: 1.5rem; font-weight: 700; background: linear-gradient(135deg, #00F0FF, #a855f7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
@@ -71,7 +73,10 @@
         </header>
         
         
-        <div class="protocol-grid">
+        <style>
+.protocol-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+</style>
+<div class="protocol-grid">
             <div class="protocol-card">
                 <div class="protocol-header">
                     <div class="protocol-name"><a href="https://x.com/aave" target="_blank"><img src="avatars/aave.png" class="protocol-avatar" alt="@aave">@aave</a> <span style="color:#00F0FF;font-size:0.7rem;">$25.98B TVL</span><span class="badge badge-hot">Top</span></div>
