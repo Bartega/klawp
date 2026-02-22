@@ -143,7 +143,7 @@ To get REAL tweets from X, you must manually scrape x.com using the browser:
 1. Start browser: `browser start --profile openclaw`
 2. Open each account: `browser open https://x.com/aave`
 3. Take snapshot to see tweets
-4. Copy real tweet URLs from the page
+4. Copy real tweet URLs to template (use twitter.com, not x.com for embeds)
 5. Update template.html with real URLs
 
 Manual scraping = using browser to visit x.com, NOT using x-research API.
