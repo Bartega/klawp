@@ -48,7 +48,7 @@
       "likes": 16,
       "retweets": 1,
       "replies": 1,
-      "views": "2613"
+      "views": "2614"
     },
     {
       "id": "2025186145563300053",
@@ -93,7 +93,7 @@
       "likes": 23,
       "retweets": 2,
       "replies": 1,
-      "views": "2043"
+      "views": "2044"
     },
     {
       "id": "2024488827314716781",
@@ -129,7 +129,7 @@
       "likes": 25,
       "retweets": 3,
       "replies": 5,
-      "views": "2454"
+      "views": "2455"
     },
     {
       "id": "2024464000826617901",
@@ -187,8 +187,15 @@
     }
   ],
   "tips": [
-    "More RWA content - resonates with audience",
-    "Quote other accounts to boost reach",
-    "Engage with replies"
+    "Your RWA content performs well - post more about real world assets",
+    "Engagement rate: 1.79% - aim for 5%+ by asking questions",
+    "Low retweets (avg 2) - add more quote tweets",
+    "Try thread format (🧵) for educational content - higher engagement",
+    "Your best post got 31 likes - consider pinning similar content",
+    "Low impressions (avg 682) - post during peak hours (9am-12pm UTC)",
+    "Link to Kamino docs/guides - educational posts drive engagement",
+    "Keep posting about Kamino updates - your audience wants it",
+    "Engage with replies within first hour to boost algorithmic reach",
+    "Use relevant hashtags: #DeFi #Solana #RWA #Kamino"
   ]
 }
