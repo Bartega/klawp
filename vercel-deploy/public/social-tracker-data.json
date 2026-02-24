@@ -1,14 +1,54 @@
 {
-  "lastUpdated": "Feb 23, 2026",
-  "avgLikes": "45",
-  "avgRetweets": "5",
-  "avgReplies": "4",
+  "lastUpdated": "Feb 24, 2026",
+  "avgLikes": "39",
+  "avgRetweets": "3",
+  "avgReplies": "5",
   "avgViews": "0",
   "posts": [
     {
+      "text": "RT @dahviemaxi: Most people who provide liquidity in DeFi know the frustration — you set up your position, prices drift out of your range,…",
+      "time": "Tue Feb 24",
+      "likes": 38,
+      "retweets": 4,
+      "replies": 25,
+      "views": "0"
+    },
+    {
+      "text": "At ~25% APY, $SyrupUSDC is currently the highest yielding RWA loop on Kamino\n\nThis comes as Kamino crosses $1B in total RWA market size - with the Map",
+      "time": "Tue Feb 24",
+      "likes": 11,
+      "retweets": 2,
+      "replies": 1,
+      "views": "0"
+    },
+    {
+      "text": "RT @kaminointern: syrupUSDC loops on @kamino have averaged ~15% APY in the last 6 months.\n\n@xBartega broke down @maplefinance and what actu…",
+      "time": "Mon Feb 23",
+      "likes": 29,
+      "retweets": 4,
+      "replies": 3,
+      "views": "0"
+    },
+    {
+      "text": "Whether its reinsurance, US home equity, institutional lending, or stocks - RWA trajectory is up and to the right only\n\nWith 1 billy RWA TVL, it's cle",
+      "time": "Mon Feb 23",
+      "likes": 20,
+      "retweets": 2,
+      "replies": 1,
+      "views": "0"
+    },
+    {
+      "text": "https://t.co/W60Wci2GaJ",
+      "time": "Mon Feb 23",
+      "likes": 53,
+      "retweets": 8,
+      "replies": 7,
+      "views": "0"
+    },
+    {
       "text": "Kamino Swap is one of the few products out there built purely for your benefit  \n\nMost interfaces extract value via hidden fees. Kamino does the oppos",
       "time": "Sun Feb 22",
-      "likes": 27,
+      "likes": 29,
       "retweets": 5,
       "replies": 2,
       "views": "0"
@@ -25,7 +65,7 @@
       "text": "comfy in kamino lend",
       "time": "Sat Feb 21",
       "likes": 16,
-      "retweets": 1,
+      "retweets": 0,
       "replies": 1,
       "views": "0"
     },
@@ -80,9 +120,9 @@
     {
       "text": "RT @xStocksFi: Build the new financial system with xStocks in our first Hackathon.\n\n❎ With $75,000 in prizes,\n❎ From March 31 to April 2\n❎…",
       "time": "Thu Feb 19",
-      "likes": 145,
+      "likes": 151,
       "retweets": 13,
-      "replies": 15,
+      "replies": 16,
       "views": "0"
     },
     {
@@ -96,7 +136,7 @@
     {
       "text": "RT @dahviemaxi: Kamino keeps building while others are talking\n\n→Stable Loops launched\n→Offchain collateral in the works. \n→RWAs quietly co…",
       "time": "Wed Feb 18",
-      "likes": 20,
+      "likes": 21,
       "retweets": 5,
       "replies": 6,
       "views": "0"
@@ -104,65 +144,25 @@
     {
       "text": "RT @MikeIppolito_: Kamino is a bright spot for Solana DeFi and starting to win big on RWAs, bullish https://t.co/jcR4ayS4mh",
       "time": "Wed Feb 18",
-      "likes": 193,
+      "likes": 196,
       "retweets": 18,
-      "replies": 21,
+      "replies": 23,
       "views": "0"
     },
     {
-      "text": "Looping with @onrefinance on Kamino is another great Solana RWA success story\n\n- high yield \n- low leverage\n- bear market resistant uncorrelated RWA y",
-      "time": "Wed Feb 18",
-      "likes": 23,
-      "retweets": 4,
-      "replies": 3,
-      "views": "0"
-    },
-    {
-      "text": "18 Audits \n4 Formal Verifications\n3 Years live without incident\n\nIt's clear why DAOs, treasuries and institutions choose Kamino",
-      "time": "Tue Feb 17",
-      "likes": 31,
+      "text": "Almost ~25% on leveraged SOL exposure in Multiply\n\n@solstrategies STKESOL is currently the top performing LST loop on Kamino with over 70 SOL incentiv",
+      "time": "Mon Feb 23",
+      "likes": 41,
       "retweets": 3,
-      "replies": 1,
+      "replies": 4,
       "views": "0"
     },
     {
-      "text": "BTCfi lives on Kamino",
-      "time": "Tue Feb 17",
-      "likes": 11,
+      "text": "Using Kamino backtesting, and utilising the real historical data we can see an average APY of ~20% during Feb\n\nThe mechanics are simple:\n\n- High nativ",
+      "time": "Mon Feb 23",
+      "likes": 4,
       "retweets": 0,
-      "replies": 1,
-      "views": "0"
-    },
-    {
-      "text": "you can just build things",
-      "time": "Sun Feb 15",
-      "likes": 14,
-      "retweets": 0,
-      "replies": 1,
-      "views": "0"
-    },
-    {
-      "text": "Here's 5 ways to get 10%+ APY with stables on Kamino:\n\nLend:\nMEV Capital USDS - 13.1%\nAllez USDS - 12.82%\nElemental USDS Optimizer - 12.82%\n\nMultiply:",
-      "time": "Sun Feb 15",
-      "likes": 47,
-      "retweets": 5,
-      "replies": 8,
-      "views": "0"
-    },
-    {
-      "text": "Stable loops turn what was an arduous, but rewarding manual loop into a simple one click multiply position\n\nIn and out via @kamino_swap for the best p",
-      "time": "Sat Feb 14",
-      "likes": 29,
-      "retweets": 3,
-      "replies": 1,
-      "views": "0"
-    },
-    {
-      "text": "RT @kamino: BREAKING: Kamino, Anchorage Digital, and Solana Company are bringing institutional collateral management to Solana.",
-      "time": "Fri Feb 13",
-      "likes": 168,
-      "retweets": 33,
-      "replies": 10,
+      "replies": 0,
       "views": "0"
     }
   ],
